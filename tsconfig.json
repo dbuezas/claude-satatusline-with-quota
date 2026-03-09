@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "noImplicitAny": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "target": "esnext"
+  }
+}
