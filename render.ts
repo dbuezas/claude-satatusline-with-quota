@@ -153,7 +153,11 @@ export function render(input: StatusLineInput, branch: string): void {
   const dir = input.workspace?.current_dir ?? "";
   const cost = input.cost?.total_cost_usd ?? 0;
   const rawPct = input.context_window?.used_percentage ?? 0;
-  const pct = Math.min(100, Math.trunc((rawPct / 83.5) * 100));
+  const EFFECTIVE_CONTEXT_SIZE_PCT = 100 - 3.3;
+  const pct = Math.min(
+    100,
+    Math.trunc((rawPct / EFFECTIVE_CONTEXT_SIZE_PCT) * 100),
+  );
   const durationMs = input.cost?.total_duration_ms ?? 0;
   const linesAdded = input.cost?.total_lines_added ?? 0;
   const linesRemoved = input.cost?.total_lines_removed ?? 0;
